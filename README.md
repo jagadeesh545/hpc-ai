@@ -1,192 +1,213 @@
-# HPC & AI Systems Engineering Course - Refactored
+# HPC & AI Systems Engineering Course
 
-This is a refactored, maintainable version of the HPC & AI course learning platform. The code has been reorganized into separate, manageable files with better separation of concerns.
+A modern, interactive learning platform for High-Performance Computing (HPC) and Artificial Intelligence (AI) systems engineering.
 
-## Project Structure
+## 🚀 Quick Start
 
-```
-hpc-ai/
-├── index.html              # Main HTML file (minimal, GitHub Pages compatible)
-├── css/
-│   └── styles.css          # All styling (custom CSS, no Tailwind)
-├── js/
-│   ├── data.js             # Course data (roadmap, resources, cheatsheets, flashcards)
-│   ├── icons.js            # SVG icon components
-│   └── app.js              # Main application logic and rendering
-└── pull_requests/
-    └── PR-Refactor.md      # Refactoring documentation
+### Prerequisites
+- Node.js 16+
+- npm 8+
+
+### Installation
+```bash
+git clone https://github.com/yourusername/hpc-ai.git
+cd hpc-ai
+npm install
 ```
 
-## Key Improvements
+### Development
+```bash
+npm run dev
+```
+Open [http://localhost:5173/hpc-ai/](http://localhost:5173/hpc-ai/) in your browser.
 
-### 1. **No External Dependencies**
-- ✅ Removed React, ReactDOM, Babel, and Tailwind CDN
-- ✅ Pure vanilla JavaScript implementation
-- ✅ Fully compatible with GitHub Pages (no build step required)
-- ✅ Faster page load time
+### Production Build
+```bash
+npm run build
+```
+The `dist/` folder contains production-ready files for GitHub Pages.
 
-### 2. **Separation of Concerns**
-- **data.js** - Centralized course data structure
-- **icons.js** - Reusable SVG icon components
-- **app.js** - Application logic and state management
-- **styles.css** - All styling with CSS variables
-
-### 3. **Better Maintainability**
-- Data is now in a single, easy-to-edit location
-- CSS is organized with utility classes and component styles
-- Icons are abstracted into reusable functions
-- Clear class structure for the app logic
-
-### 4. **GitHub Pages Compatible**
-- No build process needed
-- All relative paths work correctly
-- Loads efficiently with defer script tags
-- SEO-friendly with proper meta tags
-
-### 5. **Features Preserved**
-- ✅ Learning Roadmap with 4 phases and 16 topics
-- ✅ Resources (books, videos, labs)
-- ✅ Cheat sheets (Linux, Slurm)
-- ✅ Interactive flashcards
-- ✅ Dark/Light mode toggle
-- ✅ Collapsible sidebar navigation
-- ✅ Topic completion tracking (persisted to localStorage)
-
-## Features
+## 📋 Features
 
 ### Learning Roadmap
-- 4 learning phases with 16 topics
-- Click topics to mark as complete
-- Visual feedback (green highlighting)
-- Duration information per phase
+- 4 phases of structured learning (Foundations → HPC Core → GPU & AI → Advanced)
+- 16 core topics with icons and descriptions
+- Click-to-navigate to resources
 
-### Resources
-- Curated list of books with authors and difficulty levels
-- Expandable sections for videos and labs
+### Interactive Resources
+- Expandable phases and topics
+- Organized by resource type (Books, Articles, Videos, Labs)
+- Dark mode support
+- Persistent preferences with localStorage
 
-### Cheat Sheets
-- Linux commands reference
-- Slurm job scheduler commands
-- Easy copy-paste format
+### Study Tools
+- **Flashcards:** Interactive learning cards with reveal functionality
+- **Cheatsheets:** Quick reference commands for Linux and Slurm
+- **Summaries:** Key concepts for each topic
 
-### Flashcards
-- Quiz yourself on HPC & AI concepts
-- Navigate between cards
-- Click to reveal answers
-- Support for multiple cards (easily extendable)
+### User Experience
+- Dark/Light mode toggle
+- Responsive mobile-first design
+- Persistent user preferences
+- Hamburger menu on mobile
+- Smooth transitions and animations
 
-### Dark Mode
-- Toggle between light and dark themes
-- Preference is saved locally
+## 🛠 Tech Stack
 
-### Progress Tracking
-- All completed topics are saved to localStorage
-- Progress persists across sessions
+| Component | Technology |
+|-----------|-----------|
+| Framework | React 18.2 |
+| Build Tool | Vite 5.0 |
+| Styling | Tailwind CSS 3.3 |
+| Icons | Lucide React |
+| Testing | Vitest |
+| Deployment | GitHub Pages |
 
-## How to Use
+## 📁 Project Structure
 
-### Local Development
-Simply open `index.html` in your browser:
+```
+src/
+├── App.jsx                 # Main application with state management
+├── main.jsx               # React entry point
+├── index.css              # Tailwind CSS configuration
+├── data.js                # Course content and structure
+├── components/
+│   ├── Header.jsx         # Top navigation
+│   ├── Sidebar.jsx        # Navigation menu
+│   └── TopicIcon.jsx      # Dynamic topic icons
+└── pages/
+    ├── Roadmap.jsx        # Learning roadmap
+    ├── Resources.jsx      # Expandable resources
+    ├── Cheatsheets.jsx    # Command references
+    ├── Flashcards.jsx     # Interactive study cards
+    └── Summaries.jsx      # Key concepts
+```
+
+## 🎯 Learning Path
+
+### Phase 1: Foundations (4-6 weeks)
+- Computer Architecture
+- Operating Systems & Linux
+- Networking Fundamentals
+- Parallel Computing Concepts
+
+### Phase 2: HPC Core (6-8 weeks)
+- HPC Cluster Architecture
+- Job Schedulers (Slurm, PBS)
+- MPI Programming
+- OpenMP & Threading
+
+### Phase 3: GPU Computing & AI (6-8 weeks)
+- CUDA Programming
+- PyTorch & Deep Learning
+- Distributed Training
+- ML Optimization
+
+### Phase 4: Advanced Topics (4-6 weeks)
+- Performance Profiling
+- Parallel I/O & Storage
+- Containerization
+- CI/CD for HPC
+
+## 🚢 Deployment to GitHub Pages
+
+### Automatic with GitHub Actions
+1. Push to main branch
+2. GitHub Actions automatically builds and deploys
+
+### Manual Deployment
+1. Build: `npm run build`
+2. Commit dist/ to main branch
+3. Push to GitHub
+4. Go to Settings → Pages → Select main/dist folder
+
+See [DEPLOYMENT.md](DEPLOYMENT.md) for detailed instructions.
+
+## 🧪 Testing
+
 ```bash
-cd /path/to/hpc-ai
-# Open in browser or use a local server
-python -m http.server 8000
+npm run test
 ```
 
-Then visit `http://localhost:8000`
+Tests cover core application functionality and data integrity.
 
-### GitHub Pages Deployment
-1. Push to your GitHub repository
-2. Enable GitHub Pages in repository settings
-3. Select main branch as source
-4. Your site will be available at `https://username.github.io/hpc-ai`
+## 📚 Resources
 
-## Customization
+- **Learning Materials:** See Resources page in the app
+- **Documentation:** See [MIGRATION.md](MIGRATION.md) for technical details
+- **Deployment Guide:** See [DEPLOYMENT.md](DEPLOYMENT.md)
 
-### Add New Topics
-Edit `js/data.js`:
+## 🎨 Customization
+
+### Change Repository Name
+Update `vite.config.js`:
 ```javascript
-{
-    id: 'new-topic',
-    name: 'New Topic Name',
-    icon: 'cpu'  // Use any icon name from Icons class
-}
+base: '/your-repo-name/',
 ```
 
-### Add New Flashcards
-Edit `js/data.js`:
-```javascript
-flashcards: [
-    { q: "Question?", a: "Answer." },
-    // Add more...
-]
+### Modify Course Content
+Edit `src/data.js` with your course structure, topics, and resources.
+
+### Adjust Styling
+Tailwind CSS classes are used throughout. Modify `tailwind.config.js` to customize colors and theme.
+
+## 🔧 Development
+
+### Adding a New Page
+1. Create `src/pages/YourPage.jsx`
+2. Import in `App.jsx`
+3. Add to section mapping in `renderContent()`
+4. Add navigation item in Sidebar
+
+### Adding Dark Mode Support
+All components accept `darkMode` prop:
+```jsx
+className={`p-4 ${darkMode ? 'bg-gray-800' : 'bg-white'}`}
 ```
 
-### Change Colors
-Edit `css/styles.css` CSS variables:
-```css
-:root {
-    --primary-color: #2563eb;  /* Change primary color */
-    --success-color: #16a34a;  /* Change success color */
-}
-```
+## 📦 Build Output
 
-### Add New Icons
-In `js/icons.js`, add a new method:
-```javascript
-static newIcon() {
-    return Icons.svg("M... svg path ...");
-}
+The build process creates:
+- `dist/index.html` - HTML entry point (0.55 kB gzip)
+- `dist/assets/index-*.css` - Tailwind CSS (2.68 kB gzip)
+- `dist/assets/index-*.js` - React + app code (146.84 kB gzip)
 
-// Then register in getIcon():
-'new-icon': Icons.newIcon,
-```
+Total: ~150 kB gzip (production size)
 
-## Browser Support
+## 🐛 Troubleshooting
 
-- Chrome/Edge 90+
-- Firefox 88+
-- Safari 14+
-- Any modern browser with ES6 support
+### App not showing styles
+- Clear cache: `rm -rf node_modules && npm install`
+- Rebuild: `npm run build`
 
-## Performance Metrics
+### GitHub Pages shows 404
+- Verify `base: '/hpc-ai/'` in `vite.config.js` matches repo name
+- Check repository settings → Pages
 
-- **No external CDN dependencies** - Faster initial load
-- **Minimal CSS** - 3.2 KB (vs 50+ KB with Tailwind)
-- **Modular JS** - Each module is independent
-- **LocalStorage** - Instant preference/progress loading
+### Icons not displaying
+- Verify Lucide React is installed: `npm list lucide-react`
+- Check TopicIcon component mapping in `src/components/TopicIcon.jsx`
 
-## Accessibility
+## 📝 License
 
-- Semantic HTML structure
-- ARIA labels on interactive elements
-- Keyboard navigation support
-- Focus outlines for keyboard users
-- Color contrast ratios meet WCAG AA standards
+MIT License - feel free to use and modify
 
-## Future Enhancements
+## 👥 Contributing
 
-- [ ] Add more flashcard categories
-- [ ] Export/import progress
-- [ ] Study mode with spaced repetition
-- [ ] Add quizzes section
-- [ ] Implement timer for timed challenges
-- [ ] Add video embed sections
-- [ ] PWA offline support
+1. Fork the repository
+2. Create a feature branch
+3. Commit your changes
+4. Push to the branch
+5. Open a Pull Request
 
-## License
+## 📞 Support
 
-This project is part of the HPC & AI Systems Engineering course materials.
-
-## Contributing
-
-To contribute improvements:
-1. Make your changes in separate files
-2. Test in both light and dark modes
-3. Ensure GitHub Pages compatibility
-4. Submit a pull request with details
+For issues or questions, open a GitHub issue in the repository.
 
 ---
 
-**Last Updated**: January 18, 2026
-**Refactored by**: GitHub Copilot
+**Last Updated:** 2024  
+**React Version:** 18.2.0  
+**Vite Version:** 5.0.8+  
+**Node Version Required:** 16+
+

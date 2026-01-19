@@ -1,5 +1,5 @@
 // Data configuration for the HPC & AI course
-const courseData = {
+export const courseData = {
     title: 'HPC & AI Systems Engineering Course',
     roadmap: {
         phases: [
@@ -93,12 +93,29 @@ const courseData = {
         {
             id: 'parallel',
             title: 'Parallel Computing Fundamentals',
-            content: `Key concepts:\n\nConcurrency vs Parallelism: Concurrency deals with multiple tasks, parallelism executes them simultaneously.\n\nSpeedup: S = T₁/Tₚ measures performance gain.\n\nAmdahl's Law: Speedup limited by sequential portion = 1/(s + p/n)\n\nParadigms: Shared memory (OpenMP), distributed (MPI), hybrid.`
+            points: [
+                'Concurrency vs Parallelism: Concurrency deals with multiple tasks, parallelism executes them simultaneously',
+                'Speedup: S = T₁/Tₚ measures performance gain',
+                'Amdahl\'s Law: Speedup limited by sequential portion = 1/(s + p/n)',
+                'Paradigms: Shared memory (OpenMP), distributed (MPI), hybrid'
+            ]
+        },
+        {
+            id: 'mpi',
+            title: 'MPI Concepts',
+            points: [
+                'MPI_Send vs MPI_Isend: Send is blocking, Isend is non-blocking',
+                'Collective operations: Broadcast, Reduce, AllGather, Scatter',
+                'Process topology: Cartesian and graph topology support',
+                'Communicators: Define process groups and scope of operations'
+            ]
         }
     ],
     flashcards: [
-        { q: "What is Amdahl's Law?", a: "Speedup = 1 / (s + p/n) where s is sequential fraction" },
-        { q: "MPI_Send vs MPI_Isend?", a: "Send is blocking, Isend is non-blocking" },
-        { q: "What is GPU occupancy?", a: "Ratio of active warps to max warps on SM" }
+        { question: "What is Amdahl's Law?", answer: "Speedup = 1 / (s + p/n) where s is sequential fraction and p is parallel fraction" },
+        { question: "MPI_Send vs MPI_Isend?", answer: "Send is blocking, Isend is non-blocking" },
+        { question: "What is GPU occupancy?", answer: "Ratio of active warps to max warps on SM" },
+        { question: "What is a warp?", answer: "32 CUDA threads executing in lockstep on GPU" },
+        { question: "OpenMP or MPI for shared memory?", answer: "OpenMP is for shared memory programming" }
     ]
 };
